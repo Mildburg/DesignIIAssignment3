@@ -1,17 +1,22 @@
 package DesignIIAssigment3;
 
-public class Movie extends MediaItem{
+import java.io.Serializable;
+
+public class Movie extends MediaItem implements Serializable {
 
     private String director;
     private int year;
     private int runtimeMinutes;
+    private static int idCount = 1;
 
     public Movie(String director, int year, int runtimeMinutes, String id, String title){
         this.director = director;
         this.year = year;
         this.runtimeMinutes = runtimeMinutes;
-        super.setId(id);
+        super.setType("Movie");
+        super.setId(getId() + idCount);
         super.setTitle(title);
+        idCount++;
     }
 
     public String getDirector() {
@@ -44,6 +49,13 @@ public class Movie extends MediaItem{
     @Override
     public void summary(){
         System.out.println("Movie Director: " + director + " Year: " + year + " Runtime Minutes: " + runtimeMinutes);
+    }
+
+    @Override
+    public String CSVFormat(){
+        String info = "";
+        info += getType() + "," + getId() + "," + getTitle() + "," + director + "," + year + "," + runtimeMinutes;
+        return info;
     }
 
 }//end class

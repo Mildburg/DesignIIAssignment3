@@ -1,16 +1,30 @@
 package DesignIIAssigment3;
 
-public class Book extends MediaItem{
+import java.io.Serializable;
+
+public class Book extends MediaItem implements Serializable {
 
     private String author;
     private int year;
     private int pageCount;
+    private static int idCount = 1;
 
-    public Book(String author, int year, int pageCount, String id, String title){
+    public Book(String author, int year, int pageCount, String title){
+        this.author = author;
+        this.year = year;
+        this.pageCount = pageCount;
+        super.setType("Book");
+        super.setTitle(title);
+        super.setId(getId() + idCount);
+        idCount++;
+    }
+
+    public Book(String author, int year, int pageCount, int id, String type, String title){
         this.author = author;
         this.year = year;
         this.pageCount = pageCount;
         super.setId(id);
+        super.setType(type);
         super.setTitle(title);
     }
 
@@ -45,5 +59,12 @@ public class Book extends MediaItem{
     @Override
     public void summary(){
         System.out.println("Book Author: " + author + " Year: " + year + " PageCount: " + pageCount);
+    }
+
+    @Override
+    public String CSVFormat(){
+        String info = "";
+        info += getType() + "," + getId() + "," + getTitle() + "," + author + "," + year + "," + pageCount;
+        return info;
     }
 }// end class
