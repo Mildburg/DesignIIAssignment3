@@ -1,21 +1,28 @@
 package DesignIIAssigment3;
 
+
 public abstract class MediaItem {
 
-    private int id = 0;
+    private String id;
     private String title;
     private String type;
+
+    public MediaItem(String id, String title, String type){
+        this.id = id;
+        this.title = title;
+        this.type = type;
+    }
 
     public void summary(){}
     public String CSVFormat(){return "";}
 
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
-        if (id > 0)
+    public void setId(String id) {
+        if (!id.isEmpty())
             this.id = id;
     }
 

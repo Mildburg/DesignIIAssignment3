@@ -9,14 +9,19 @@ public class Movie extends MediaItem implements Serializable {
     private int runtimeMinutes;
     private static int idCount = 1;
 
-    public Movie(String director, int year, int runtimeMinutes, String id, String title){
+    public Movie(String director, int year, int runtimeMinutes, String title){
+        super("M" + idCount, title, "Movie");
         this.director = director;
         this.year = year;
         this.runtimeMinutes = runtimeMinutes;
-        super.setType("Movie");
-        super.setId(getId() + idCount);
-        super.setTitle(title);
         idCount++;
+    }
+
+    public Movie(String director, int year, int runtimeMinutes, String id, String title, String type){
+        super(id, title, type);
+        this.director = director;
+        this.year = year;
+        this.runtimeMinutes = runtimeMinutes;
     }
 
     public String getDirector() {

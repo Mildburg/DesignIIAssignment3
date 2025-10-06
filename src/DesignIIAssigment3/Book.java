@@ -9,23 +9,20 @@ public class Book extends MediaItem implements Serializable {
     private int pageCount;
     private static int idCount = 1;
 
+
     public Book(String author, int year, int pageCount, String title){
+        super("B" + idCount, title, "Book");
         this.author = author;
         this.year = year;
         this.pageCount = pageCount;
-        super.setType("Book");
-        super.setTitle(title);
-        super.setId(getId() + idCount);
         idCount++;
     }
 
-    public Book(String author, int year, int pageCount, int id, String type, String title){
+    public Book(String author, int year, int pageCount, String id, String title, String type){
+        super(id, title, type);
         this.author = author;
         this.year = year;
         this.pageCount = pageCount;
-        super.setId(id);
-        super.setType(type);
-        super.setTitle(title);
     }
 
 
