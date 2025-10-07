@@ -24,6 +24,15 @@ public class Movie extends MediaItem implements Serializable {
         this.runtimeMinutes = runtimeMinutes;
     }
 
+    public int getIdCount(){
+        return idCount;
+    }
+
+    public void setIdCount(int idCount){
+        if(idCount > -1)
+            Movie.idCount = idCount;
+    }
+
     public String getDirector() {
         return director;
     }

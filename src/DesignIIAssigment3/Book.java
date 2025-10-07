@@ -2,8 +2,16 @@ package DesignIIAssigment3;
 
 import java.io.Serializable;
 
+/**
+ * Book class, inherits from MediaItem and implements Serializable.
+ */
 public class Book extends MediaItem implements Serializable {
 
+    /**
+     * Standard Strings and integer values for the author, year, and page count.
+     * Static int for the id Count. Keeps track of how many books have been instantiated for unique
+     * id numbers.
+     */
     private String author;
     private int year;
     private int pageCount;
@@ -23,6 +31,15 @@ public class Book extends MediaItem implements Serializable {
         this.author = author;
         this.year = year;
         this.pageCount = pageCount;
+    }
+
+    public int getIdCount(){
+        return idCount;
+    }
+
+    public void setIdCount(int idCount){
+        if(idCount > -1)
+            Book.idCount = idCount;
     }
 
 
