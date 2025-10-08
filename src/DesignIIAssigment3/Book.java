@@ -70,11 +70,18 @@ public class Book extends MediaItem implements Serializable {
             this.pageCount = pageCount;
     }
 
+    /**
+     * Overridden summary method.
+     */
     @Override
     public void summary(){
         System.out.println("Book Author: " + author + " Year: " + year + " PageCount: " + pageCount);
     }
 
+    /**
+     * Overridden CSVFormat Method.
+     * @return - returns string of information in CSV format.
+     */
     @Override
     public String CSVFormat(){
         String info = "";

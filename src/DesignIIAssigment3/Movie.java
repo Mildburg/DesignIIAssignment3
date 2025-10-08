@@ -2,8 +2,15 @@ package DesignIIAssigment3;
 
 import java.io.Serializable;
 
+/**
+ * Movie class, extends MediaItem, implements Serializable
+ */
 public class Movie extends MediaItem implements Serializable {
 
+    /**
+     * String and integer values for director, year, and runtimeMinutes
+     * Static integer for idCount for unique ids.
+     */
     private String director;
     private int year;
     private int runtimeMinutes;
@@ -60,11 +67,18 @@ public class Movie extends MediaItem implements Serializable {
             this.runtimeMinutes = runtimeMinutes;
     }
 
+    /**
+     * Overridden summary method.
+     */
     @Override
     public void summary(){
         System.out.println("Movie Director: " + director + " Year: " + year + " Runtime Minutes: " + runtimeMinutes);
     }
 
+    /**
+     * Overridden CSVFormat method.
+     * @return - returns string of information in CSV format.
+     */
     @Override
     public String CSVFormat(){
         String info = "";

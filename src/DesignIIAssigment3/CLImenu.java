@@ -38,6 +38,7 @@ public class CLImenu {
             switch (choice){
                 //exit choice
                 case 0:
+                    System.out.println("Have a good day.");
                     break;
                 //Lists all the items in the catalog currently.
                 case 1:
@@ -97,7 +98,6 @@ public class CLImenu {
                     System.out.println("Catalog exported.");
                     break;
             }// end of menu
-            System.out.println("Have a good day.");
         }
     }
 }

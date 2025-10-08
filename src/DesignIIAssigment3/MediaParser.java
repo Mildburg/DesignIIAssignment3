@@ -88,13 +88,16 @@ public class MediaParser {
                 if(Integer.parseInt(m.getId()) > lastIdNum)
                     lastIdNum = Integer.parseInt(m.getId());
             }
-            return loadedItems;
 
+        }
+        catch(FileNotFoundException e){
+            System.out.println("File not Found!");
         }
         catch(IOException e){
             System.out.println("Error Loading files!");
             throw new RuntimeException();
         }
+        return loadedItems;
     }//end loadItemsCSV()
 
 

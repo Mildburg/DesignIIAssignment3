@@ -2,8 +2,15 @@ package DesignIIAssigment3;
 
 import java.io.Serializable;
 
+/**
+ * Album class, extends MediaItem, implements Serializable
+ */
 public class Album extends MediaItem implements Serializable {
 
+    /**
+     * String and integer values for artist, year, and track count.
+     * Static integer for idCount to keep track of unique id numbers.
+     */
     private String artist;
     private int year;
     private int trackCount;
@@ -60,11 +67,18 @@ public class Album extends MediaItem implements Serializable {
             this.trackCount = trackCount;
     }
 
+    /**
+     * Overridden summary method.
+     */
     @Override
     public void summary(){
         System.out.println("Album Artist: " + artist + " Year: " + year + " Track Count: " + trackCount);
     }
 
+    /**
+     * Overridden CSVFormat method.
+     * @return - returns a string of information in csv format.
+     */
     @Override
     public String CSVFormat(){
         String info = "";
