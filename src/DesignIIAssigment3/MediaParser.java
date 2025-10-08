@@ -53,7 +53,6 @@ public class MediaParser {
      */
     public ArrayList<MediaItem> loadItemsCSV(String filePath){
         ArrayList<MediaItem> loadedItems = new ArrayList<>();
-        int compareIdNum = 0;
         try(BufferedReader in = new BufferedReader(new FileReader(filePath))){
             String line;
             while ((line = in.readLine()) != null){
@@ -64,8 +63,6 @@ public class MediaParser {
                 String creator = parts[3];
                 int year = Integer.parseInt(parts[4]);
                 int extraInfo = Integer.parseInt(parts[5]);
-
-                compareIdNum = Integer.parseInt(parts[1]);
 
 
                 switch (type) {
@@ -85,7 +82,8 @@ public class MediaParser {
             }
 
             for (MediaItem m : loadedItems){
-                if(Integer.parseInt(m.getId()) > lastIdNum)
+                String[] idParts = m.getId().split("");
+                if(Integer.parseInt(idParts[1]) > lastIdNum)
                     lastIdNum = Integer.parseInt(m.getId());
             }
 

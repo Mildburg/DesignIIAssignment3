@@ -72,7 +72,7 @@ public class Album extends MediaItem implements Serializable {
      */
     @Override
     public void summary(){
-        System.out.println("Album Artist: " + artist + " Year: " + year + " Track Count: " + trackCount);
+        System.out.println("Album Artist: " + artist + " Year: " + year + " Track Count: " + trackCount + " Title: " + getTitle());
     }
 
     /**
@@ -82,7 +82,7 @@ public class Album extends MediaItem implements Serializable {
     @Override
     public String CSVFormat(){
         String info = "";
-        info += getType() + "," + getId() + "," + getTitle() + "," + artist + "," + year + "," + trackCount;
+        info += getType() + "," + getId() + "," + getTitle() + "," + artist + "," + year + "," + trackCount + "\n";
         return info;
     }
 }//end class

@@ -26,14 +26,15 @@ public class CLImenu {
         book.setIdCount(mediaParser.getLastIdNum());
         album.setIdCount(mediaParser.getLastIdNum());
 
+        System.out.println("Welcome to your Media Item Catalog");
         while(choice != 0){
-            System.out.println("Welcome to your Media Item Catalog");
             System.out.println("1. List all Items");
             System.out.println("2. Add item (Book, Movie, Album)");
             System.out.println("3. Save catalog to CSV file");
             System.out.println("4. Export Catalog to binary file");
             System.out.println("0. Exit");
             choice = scanner.nextInt();
+            scanner.nextLine();//clear buffer
 
             switch (choice){
                 //exit choice
@@ -54,13 +55,16 @@ public class CLImenu {
                     System.out.println("2. Book");
                     System.out.println("3. Album");
                     mediaChoice = scanner.nextInt();
+                    scanner.nextLine();//clear buffer
                     switch (mediaChoice){
                         case 1:
                             System.out.println("Please enter the director, year, runtime minutes, and title" +
                                     " pressing enter after each.");
                             String director = scanner.nextLine();
                             int movieYear = scanner.nextInt();
+                            scanner.nextLine();//clear buffer
                             int runtimeMinutes = scanner.nextInt();
+                            scanner.nextLine();//clear buffer
                             String movieTitle = scanner.nextLine();
                             Movie movie1 = new Movie(director, movieYear, runtimeMinutes, movieTitle);
                             catalogItems.add(movie1);
@@ -70,7 +74,9 @@ public class CLImenu {
                                     " pressing enter after each.");
                             String author = scanner.nextLine();
                             int bookYear = scanner.nextInt();
+                            scanner.nextLine();//clear buffer
                             int pageCount = scanner.nextInt();
+                            scanner.nextLine();//clear buffer
                             String bookTitle = scanner.nextLine();
                             Book book1 = new Book(author, bookYear, pageCount, bookTitle);
                             catalogItems.add(book1);
@@ -80,13 +86,16 @@ public class CLImenu {
                                     " pressing enter after each.");
                             String artist = scanner.nextLine();
                             int albumYear = scanner.nextInt();
+                            scanner.nextLine();//clear buffer
                             int trackCount = scanner.nextInt();
+                            scanner.nextLine();//clear buffer
                             String albumTitle = scanner.nextLine();
                             Album album1 = new Album(artist, albumYear, trackCount, albumTitle);
                             catalogItems.add(album1);
                             break;
 
                     }//end mediaChoice Switch
+                    break;
                 //Saves catalog to the CSV file.
                 case 3:
                     mediaParser.saveToCSV(catalogItems, filenameCSV);

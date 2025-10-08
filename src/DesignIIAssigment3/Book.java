@@ -75,7 +75,7 @@ public class Book extends MediaItem implements Serializable {
      */
     @Override
     public void summary(){
-        System.out.println("Book Author: " + author + " Year: " + year + " PageCount: " + pageCount);
+        System.out.println("Book Author: " + author + " Year: " + year + " PageCount: " + pageCount + " Title: " + getTitle());
     }
 
     /**
@@ -85,7 +85,7 @@ public class Book extends MediaItem implements Serializable {
     @Override
     public String CSVFormat(){
         String info = "";
-        info += getType() + "," + getId() + "," + getTitle() + "," + author + "," + year + "," + pageCount;
+        info += getType() + "," + getId() + "," + getTitle() + "," + author + "," + year + "," + pageCount + "\n";
         return info;
     }
 }// end class

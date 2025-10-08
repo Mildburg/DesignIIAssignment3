@@ -72,7 +72,8 @@ public class Movie extends MediaItem implements Serializable {
      */
     @Override
     public void summary(){
-        System.out.println("Movie Director: " + director + " Year: " + year + " Runtime Minutes: " + runtimeMinutes);
+        System.out.println("Movie Director: " + director + " Year: " + year + " Runtime Minutes: " + runtimeMinutes + " Title: " +
+                getTitle());
     }
 
     /**
@@ -82,7 +83,7 @@ public class Movie extends MediaItem implements Serializable {
     @Override
     public String CSVFormat(){
         String info = "";
-        info += getType() + "," + getId() + "," + getTitle() + "," + director + "," + year + "," + runtimeMinutes;
+        info += getType() + "," + getId() + "," + getTitle() + "," + director + "," + year + "," + runtimeMinutes + "\n";
         return info;
     }
 
